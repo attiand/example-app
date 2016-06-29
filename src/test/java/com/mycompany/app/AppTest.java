@@ -9,6 +9,6 @@ public class AppTest {
 	@Test
 	public void shouldReturnUltimateQuestionOfLife() {
 		App app = new App();
-		assertEquals(42, app.foo());
+		assertEquals(44, app.foo());
 	}
 }
