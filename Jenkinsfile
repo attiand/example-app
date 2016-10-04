@@ -7,10 +7,7 @@ node (){
 
    stage 'Build and Test'
   
-   withEnv(["PATH+MAVEN=${tool 'maven3'}/bin",
-            "PATH+JAVA=${tool 'java1.8'}/bin",
-            "JAVA_HOME=${tool 'java1.8'}"]) {
-            
+   docker.image('maven:3.3.3-jdk-8').inside {            
       sh 'mvn clean -Dmaven.test.failure.ignore -B verify'
    }   
       
