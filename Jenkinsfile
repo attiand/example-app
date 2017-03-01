@@ -15,11 +15,9 @@ node (){
       ]]
    }
 
-   load 'repo/constant.groovy'
-
    stage 'Build and Test'
 
-   docker.image(MAVEN_BUILD_IMAGE).inside {
+   docker.image('maven:3.3.3-jdk-8').inside {
       sh 'mvn clean -Dmaven.test.failure.ignore -B verify'
    }
 
