@@ -13,9 +13,9 @@
 	</properties>
 
 	<scm>
-		<connection>scm:git:attiand@github.com:attiand/my-app.git</connection>
+		<connection>scm:git:git@github.com:attiand/my-app.git</connection>
 		<url>https://github.com/attiand/my-app</url>
-		<developerConnection>scm:git:attiand@github.com:attiand/my-app.git</developerConnection>
+		<developerConnection>scm:git:git@github.com:attiand/my-app.git</developerConnection>
 	</scm>
 
 	<build>
