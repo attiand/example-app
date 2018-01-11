@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mycompany.app</groupId>
 	<artifactId>example-app</artifactId>
@@ -16,7 +15,7 @@
 		<connection>scm:git:git@github.com:attiand/my-app.git</connection>
 		<url>https://github.com/attiand/my-app</url>
 		<developerConnection>scm:git:git@github.com:attiand/my-app.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>my-branch</tag>
 	</scm>
 
 	<build>
