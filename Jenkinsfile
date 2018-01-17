@@ -1,25 +1,17 @@
 #!groovy
 
 node (){
-   stage('SCM') {
-   checkout scm
-   checkout changelog: true,
-   scm: [$class: 'GitSCM',
-      extensions: [
-           [$class: 'CleanBeforeCheckout'],
-           [$class: 'hudson.plugins.git.extensions.impl.RelativeTargetDirectory', relativeTargetDir: 'repo'],
-           [$class: 'BuildChooserSetting', buildChooser: [$class: 'GerritTriggerBuildChooser']]
-       ],
-      userRemoteConfigs: [
-           [url: 'https://github.com/eplatti/my-app.git']
-      ]]
-   }
+  stage('SCM') {
+    def co = checkout scm
 
-   stage 'Build and Test'
+    echo "checkout info: " + co
+  }
 
-   docker.image('maven:3.3.3-jdk-8').inside {
+  stage 'Build and Test' {
+    docker.image('maven:3.3.3-jdk-8').inside {
       sh 'mvn clean -Dmaven.test.failure.ignore -B verify'
-   }
+    }
 
-   step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
+    step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
+   }
  }
