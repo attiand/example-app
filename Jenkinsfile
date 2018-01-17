@@ -1,7 +1,7 @@
 #!groovy
 
 node (){
-  stage('SCM') {
+  stage('scm') {
     def co = checkout scm
     echo "checkout info: " + co
   }
