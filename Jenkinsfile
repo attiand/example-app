@@ -2,7 +2,7 @@
 
 node (){
   stage('scm') {
-    def co = checkout subPath: 'repos', scm
+    def co = checkout changelog: true, scm
     echo "checkout info: " + co
   }
 
