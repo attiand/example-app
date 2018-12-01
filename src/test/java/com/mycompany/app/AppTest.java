@@ -1,28 +1,28 @@
 package com.mycompany.app;
 
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class AppTest {
 
 	@Test
 	public void test1() {
-		assertTrue(true);
+		assertThat(true).isTrue();
 	}
 
 	@Test
 	public void test2() {
-		assertTrue(true);
+		assertThat(true).isTrue();
 	}
 
 	@Test
 	public void test3() {
-		assertTrue(true);
+		assertThat(true).isTrue();
 	}
 
 	@Test
 	public void test4() {
-		assertTrue(true);
+		assertThat(true).isTrue();
 	}
 }

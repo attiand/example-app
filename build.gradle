@@ -1,5 +1,8 @@
-apply plugin: 'java'
-apply plugin: 'application'
+plugins {
+   id 'java'
+   id 'application'   
+}
+
 
 version = '1.0.2-SNAPSHOT'
 group = 'com.mycompany.app'
@@ -8,11 +11,18 @@ mainClassName = 'com.mycompany.app.Main'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+compileJava.options.encoding = 'UTF-8'
+def jupiterVersion = '5.3.2'
+
 
 repositories { 
-	mavenCentral() 
+   mavenCentral() 
 }
 
-dependencies { 
-	testCompile 'junit:junit:4.12' 
+dependencies {
+
+   // TEST
+   testImplementation "org.junit.jupiter:junit-jupiter-api:${jupiterVersion}"
+   testImplementation "org.assertj:assertj-core:3.11.1"
+   testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${jupiterVersion}"
 }
