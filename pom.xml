@@ -3,7 +3,7 @@
 	<groupId>com.mycompany.app</groupId>
 	<artifactId>example-app</artifactId>
 	<packaging>pom</packaging>
-	<version>1.0.5-SNAPSHOT</version>
+	<version>1.0.5</version>
 	<name>my-app</name>
 	<url>http://maven.apache.org</url>
 
@@ -22,7 +22,7 @@
 		<connection>scm:git:git@github.com:attiand/my-app.git</connection>
 		<url>https://github.com/attiand/my-app</url>
 		<developerConnection>scm:git:git@github.com:attiand/my-app.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>example-app-1.0.5</tag>
 	</scm>
 
 	<build>
