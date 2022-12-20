@@ -3,12 +3,23 @@
 *.classpath
 .settings/
 
+# Intllij
+.idea
+
+# VSCode
+.vscode
+
 # Maven
 target/
+!.mvn/wrapper/maven-wrapper.jar
+/.mvn/
+/mvnw
+/mvnw.bat
 release.properties
 
 # Gradle
 .gradle
+bin/
 build/
 gradle-app.setting
 !gradle-wrapper.jar
