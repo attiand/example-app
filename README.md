@@ -1,2 +1,3 @@
-# example-app
-Simple maven project created from maven-archetype-quickstart
+# Example app
+
+Sample app from Quarkus with fabric8 docker-maven-plugin.
