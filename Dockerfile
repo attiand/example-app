@@ -1,32 +1,23 @@
-FROM registry.access.redhat.com/ubi8/openjdk-17-runtime:1.17-1.1693366274
+FROM registry.access.redhat.com/ubi8/openjdk-17-runtime:registry.access.redhat.com/ubi8/openjdk-17@sha256:aa53206031afff34f8c83b8cc491d853bc78d88a16bf19a3e09ed1841af4cdc7
 
 USER root
 
-ENV TZ=Europe/Stockholm HOME=/opt/slask LANG=C.utf8
+ENV TZ=Europe/Stockholm HOME=/opt/example-app LANG=C.utf8
 
-RUN groupadd --system --gid=1000 slask && \
-    useradd --system --no-log-init --gid slask --uid=1000 slask && \
-    mkdir /var/slask && chown slask:slask /var/slask && \
-    mkdir /opt/slask && chown slask:slask /opt/slask
+RUN groupadd --system --gid=1000 example-app && \
+    useradd --system --no-log-init --gid example-app --uid=1000 example-app && \
+    mkdir /var/example-app && chown example-app:example-app /var/example-app && \
+    mkdir /opt/example-app && chown example-app:example-app /opt/example-app
 
 # We make four distinct layers so if there are application changes the library layers can be re-used
-COPY --chown=slask:slask target/quarkus-app/lib/ /opt/slask/lib/
-COPY --chown=slask:slask target/quarkus-app/*.jar /opt/slask/
-COPY --chown=slask:slask target/quarkus-app/app/ /opt/slask/app/
-COPY --chown=slask:slask target/quarkus-app/quarkus/ /opt/slask/quarkus/
+COPY --chown=example-app:example-app target/quarkus-app/lib/ /opt/example-app/lib/
+COPY --chown=example-app:example-app target/quarkus-app/*.jar /opt/example-app/
+COPY --chown=example-app:example-app target/quarkus-app/app/ /opt/example-app/app/
+COPY --chown=example-app:example-app target/quarkus-app/quarkus/ /opt/example-app/quarkus/
 
-USER slask
+USER example-app
 
-# Required to build with Docker on Windows
-RUN chmod u+x \
-    /opt/slask \
-    /opt/slask/lib \
-    /opt/slask/lib/main \
-    /opt/slask/lib/boot \
-    /opt/slask/app \
-    /opt/slask/quarkus
-
-WORKDIR /var/slask
+WORKDIR /var/example-app
 
 EXPOSE 8080
 EXPOSE 8787
@@ -35,4 +26,4 @@ CMD java \
     ${JAVA_OPTS} \
     -agentlib:jdwp=transport=dt_socket,address=*:8787,server=y,suspend=n \
     -Djava.net.preferIPv4Stack=true \
-    -jar /opt/slask/quarkus-run.jar
+    -jar /opt/example-app/quarkus-run.jar
