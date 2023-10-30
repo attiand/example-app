@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/openjdk-17-runtime:registry.access.redhat.com/ubi8/openjdk-17@sha256:aa53206031afff34f8c83b8cc491d853bc78d88a16bf19a3e09ed1841af4cdc7
+FROM registry.access.redhat.com/ubi8/openjdk-17-runtime:registry.access.redhat.com/ubi8/openjdk-17@sha256:e0c0104f1c7c61c0a437dfd6467fba877584ff9f1463072f27e06696f657c443
 
 USER root
 
