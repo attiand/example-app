@@ -6,17 +6,15 @@
   <artifactId>code-with-quarkus</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <properties>
-    <compiler-plugin.version>3.11.0</compiler-plugin.version>
-    <docker.labels>{}</docker.labels>
-    <docker.tag>latest</docker.tag>
+    <compiler-plugin.version>3.13.0</compiler-plugin.version>
     <maven.compiler.release>17</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>3.5.0</quarkus.platform.version>
+    <quarkus.platform.version>3.9.1</quarkus.platform.version>
     <skipITs>true</skipITs>
-    <surefire-plugin.version>3.1.2</surefire-plugin.version>
+    <surefire-plugin.version>3.2.5</surefire-plugin.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -77,38 +75,6 @@
           <compilerArgs>
             <arg>-parameters</arg>
           </compilerArgs>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>io.fabric8</groupId>
-        <artifactId>docker-maven-plugin</artifactId>
-        <version>0.43.4</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>push</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>build</id>
-            <phase>package</phase>
-            <goals>
-              <goal>build</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <images>
-            <image>
-              <name>example-app:${docker.tag}</name>
-              <build>
-                <contextDir>${project.basedir}</contextDir>
-                <buildOptions>
-                  <labels>${docker.labels}</labels>
-                </buildOptions>
-              </build>
-            </image>
-          </images>
         </configuration>
       </plugin>
       <plugin>
