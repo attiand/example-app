@@ -18,14 +18,14 @@
 				"humao.rest-client"
 			]
 		}
-	},
+	}
 	// rootless podman
-	"containerUser": "vscode",
-	"workspaceMount": "",
-	"runArgs": [
-		"--userns=keep-id:uid=1000,gid=1000",
-		"--volume=${localWorkspaceFolder}:/workspaces/${localWorkspaceFolderBasename}:Z"
-	]
+	//"containerUser": "vscode",
+	//"workspaceMount": "",
+	//"runArgs": [
+	//	"--userns=keep-id:uid=1000,gid=1000",
+	//	"--volume=${localWorkspaceFolder}:/workspaces/${localWorkspaceFolderBasename}:Z"
+	//]
 
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
